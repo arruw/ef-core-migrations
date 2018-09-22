@@ -15,9 +15,9 @@ namespace EfCoreMigrations
                 db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
 
-                var posts = db.Posts.ToList();
+                var blogs = db.Blogs.ToList();
 
-                Console.WriteLine(JsonConvert.SerializeObject(posts, Formatting.Indented));
+                Console.WriteLine(JsonConvert.SerializeObject(blogs, Formatting.Indented));
             }
         }
     }
