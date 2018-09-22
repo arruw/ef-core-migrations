@@ -13,6 +13,8 @@ namespace EfCoreMigrations.Models
 
         public string Author { get; set; }
 
+        public int Readers { get; set; }
+
         public virtual ICollection<Post> Posts { get; set; }      
     }
 }
