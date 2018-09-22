@@ -3,14 +3,16 @@ using System;
 using EfCoreMigrations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ef_core_migrations.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    partial class BlogContextModelSnapshot : ModelSnapshot
+    [Migration("20180922142144_AddedRatingToBlog")]
+    partial class AddedRatingToBlog
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,8 +29,6 @@ namespace ef_core_migrations.Migrations
 
                     b.Property<int>("Rating");
 
-                    b.Property<int>("Readers");
-
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
@@ -36,7 +36,7 @@ namespace ef_core_migrations.Migrations
                     b.ToTable("Blogs");
 
                     b.HasData(
-                        new { Id = 1, Author = "Matjaž Mav", Rating = 0, Readers = 0, Title = ".NET Core is awesome!" }
+                        new { Id = 1, Author = "Matjaž Mav", Rating = 0, Title = ".NET Core is awesome!" }
                     );
                 });
 
